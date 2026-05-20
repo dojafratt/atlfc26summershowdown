@@ -9,11 +9,11 @@ window.FC26_CONFIG = {
   // Your Airtable Personal Access Token (read-only scope is sufficient).
   // Get one at: https://airtable.com/create/tokens
   // Required scope: data.records:read   |   Required base: your FC26 base
-  AIRTABLE_TOKEN: 'PASTE_YOUR_AIRTABLE_TOKEN_HERE',
+  AIRTABLE_TOKEN: 'patHQtEPWToSuEdkM.e272c6eaec92e6954c50ee93736244eda128fdbbe3ed371db6a36bc53977e979',
 
   // Your Airtable Base ID — starts with "app..."
   // Find it at: https://airtable.com/api  (open your base and copy the ID from the URL)
-  AIRTABLE_BASE_ID: 'PASTE_YOUR_BASE_ID_HERE',
+  AIRTABLE_BASE_ID: 'app7RFMT3x0TPljWg',
 
   // The table name inside your base. Must match exactly.
   AIRTABLE_TABLE_NAME: 'Scores',
