@@ -444,16 +444,9 @@ table.leaderboard {
 /* Top 4 weekly qualifier row — gold */
 tr.qualifier-weekly {
   background: linear-gradient(90deg, var(--gold-soft), transparent 80%);
-  position: relative;
 }
-tr.qualifier-weekly::before {
-  content: '';
-  position: absolute;
-  left: 0;
-  top: 0;
-  bottom: 0;
-  width: 3px;
-  background: var(--gold);
+tr.qualifier-weekly td:first-child {
+  box-shadow: inset 3px 0 0 var(--gold);
 }
 tr.qualifier-weekly .rank { color: var(--gold); }
 tr.qualifier-weekly:hover { background: linear-gradient(90deg, rgba(255, 201, 74, 0.18), transparent 80%); }
@@ -461,16 +454,9 @@ tr.qualifier-weekly:hover { background: linear-gradient(90deg, rgba(255, 201, 74
 /* Top 16 monthly qualifier row — silver */
 tr.qualifier-monthly {
   background: linear-gradient(90deg, var(--silver-soft), transparent 80%);
-  position: relative;
 }
-tr.qualifier-monthly::before {
-  content: '';
-  position: absolute;
-  left: 0;
-  top: 0;
-  bottom: 0;
-  width: 3px;
-  background: var(--silver);
+tr.qualifier-monthly td:first-child {
+  box-shadow: inset 3px 0 0 var(--silver);
 }
 tr.qualifier-monthly .rank { color: var(--silver); }
 
