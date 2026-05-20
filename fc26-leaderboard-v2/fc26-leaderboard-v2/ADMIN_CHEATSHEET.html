@@ -1,0 +1,322 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <title>FC26 Admin Cheat Sheet</title>
+    <style>
+      * { box-sizing: border-box; margin: 0; padding: 0; }
+      body {
+        font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto,
+          sans-serif;
+        background: #f6f7f5;
+        color: #1a221d;
+        line-height: 1.45;
+        padding: 32px 24px;
+        max-width: 880px;
+        margin: 0 auto;
+      }
+      h1 {
+        font-size: 28px;
+        letter-spacing: -0.5px;
+        border-bottom: 3px solid #0e6334;
+        padding-bottom: 10px;
+        margin-bottom: 6px;
+      }
+      .sub {
+        color: #5a6b62;
+        font-size: 14px;
+        margin-bottom: 22px;
+      }
+      h2 {
+        font-size: 17px;
+        margin: 22px 0 10px;
+        color: #0e6334;
+        text-transform: uppercase;
+        letter-spacing: 1px;
+      }
+      .card {
+        background: #ffffff;
+        border: 1px solid #e2e8e3;
+        border-radius: 6px;
+        padding: 16px 18px;
+        margin-bottom: 14px;
+      }
+      .card.warn { border-color: #d4a017; background: #fef9ec; }
+      .card.danger { border-color: #b8302c; background: #fceeed; }
+      table {
+        width: 100%;
+        border-collapse: collapse;
+        background: #fff;
+        border: 1px solid #e2e8e3;
+        border-radius: 6px;
+        overflow: hidden;
+      }
+      th, td {
+        text-align: left;
+        padding: 10px 12px;
+        border-bottom: 1px solid #e2e8e3;
+        font-size: 13.5px;
+        vertical-align: top;
+      }
+      th {
+        background: #f0f3f1;
+        font-weight: 700;
+        font-size: 12px;
+        text-transform: uppercase;
+        letter-spacing: 0.5px;
+        color: #3d4a43;
+      }
+      tr:last-child td { border-bottom: none; }
+      code {
+        font-family: 'SF Mono', Monaco, Consolas, monospace;
+        background: #ebf1ed;
+        padding: 1px 5px;
+        border-radius: 3px;
+        font-size: 90%;
+      }
+      ol, ul { padding-left: 22px; }
+      li { margin: 4px 0; }
+      .checkbox {
+        display: inline-block;
+        width: 13px;
+        height: 13px;
+        border: 2px solid #0e6334;
+        border-radius: 2px;
+        vertical-align: -2px;
+        margin-right: 4px;
+      }
+      .pill {
+        display: inline-block;
+        padding: 2px 8px;
+        background: #0e6334;
+        color: white;
+        border-radius: 10px;
+        font-size: 11px;
+        font-weight: 700;
+        letter-spacing: 0.5px;
+        text-transform: uppercase;
+      }
+      @media print {
+        body { background: white; padding: 16px; }
+        .card { break-inside: avoid; }
+      }
+    </style>
+  </head>
+  <body>
+    <h1>FC26 Leaderboard — Admin Cheat Sheet</h1>
+    <p class="sub">
+      Keep this open while you're working in Airtable. Everything you need to
+      run the month is on this one page.
+    </p>
+
+    <h2>The only file you ever open in Airtable</h2>
+    <div class="card">
+      Base: <code>FC26 Leaderboard</code> · Table: <code>Scores</code><br />
+      Each row = one player's score for one week.
+    </div>
+
+    <h2>What goes in each column</h2>
+    <table>
+      <thead>
+        <tr>
+          <th style="width: 22%">Column</th>
+          <th>What to enter</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td><code>Player Name</code></td>
+          <td>
+            The player's display name as it should appear on the public site.
+            <strong>Spell it the same way every time</strong> — the monthly
+            board groups by exact name. "Devon Mitchell" and "Devon mitchell"
+            count as the same person (case-insensitive), but "Devon Mitchell "
+            with a trailing space does not.
+          </td>
+        </tr>
+        <tr>
+          <td><code>Score</code></td>
+          <td>
+            The raw integer score. No commas, no decimals. The site formats it
+            with commas automatically.
+          </td>
+        </tr>
+        <tr>
+          <td><code>Week Number</code></td>
+          <td>
+            Pick from the dropdown: <code>Week 1</code>, <code>Week 2</code>,
+            <code>Week 3</code>, or <code>Week 4</code>. Must match exactly.
+          </td>
+        </tr>
+        <tr>
+          <td><code>Location</code></td>
+          <td>
+            The Parks &amp; Rec or YMCA location where the score was played.
+            Shown on the weekly board.
+          </td>
+        </tr>
+        <tr>
+          <td><code>Weekly Qualifier</code></td>
+          <td>
+            <span class="checkbox"></span> Leave UNCHECKED when entering new
+            scores. Tick it ONLY after a week ends, on the 4 highest-scoring
+            rows of that week. See "End-of-week ritual" below.
+          </td>
+        </tr>
+        <tr>
+          <td><code>Notes</code></td>
+          <td>
+            Free-text scratchpad for your eyes only. Never shown on the
+            website. Use it for anything: "verified by Marcus", "rerun
+            requested", "tie-break decided by X", etc.
+          </td>
+        </tr>
+      </tbody>
+    </table>
+
+    <h2>During the week</h2>
+    <div class="card">
+      <ol>
+        <li>
+          A host submits a score (text, Discord, in person — however you're
+          collecting them).
+        </li>
+        <li>
+          Open Airtable, click the <code>+</code> at the bottom of the Scores
+          table to add a new row.
+        </li>
+        <li>
+          Fill in Player Name, Score, Week Number, Location. Leave Weekly
+          Qualifier unchecked. Notes optional.
+        </li>
+        <li>Tab out of the row. That's it — the site picks it up immediately.</li>
+      </ol>
+    </div>
+
+    <h2>End-of-week ritual <span class="pill">important</span></h2>
+    <div class="card warn">
+      <strong>Every Monday morning after a week closes:</strong>
+      <ol style="margin-top: 8px">
+        <li>
+          Open the live website's Weekly Leaderboard. Switch to the week that
+          just ended.
+        </li>
+        <li>
+          The top 4 rows are highlighted in gold — these are your qualifiers.
+        </li>
+        <li>
+          For each of those 4 players, find their row in Airtable for that
+          week and tick the <code>Weekly Qualifier</code> checkbox.
+        </li>
+        <li>
+          Refresh the Monthly Leaderboard. Those 4 players should now appear
+          greyed-out with a "Qualified · Weekly" badge, and the monthly
+          qualifier spots should have shifted down accordingly.
+        </li>
+      </ol>
+      Why this matters: a player who qualified weekly should NOT also take a
+      monthly spot. Checking that box is what removes them from the monthly
+      pool.
+    </div>
+
+    <h2>If a player plays in more than one week</h2>
+    <div class="card">
+      That's fine — just add one row per week. The monthly leaderboard
+      automatically keeps only their best score across all weeks. You don't
+      need to delete the lower one.
+    </div>
+
+    <h2>Fixing mistakes</h2>
+    <ul>
+      <li>
+        <strong>Wrong score entered:</strong> click the cell, fix the number,
+        tab out. Done.
+      </li>
+      <li>
+        <strong>Wrong player name (typo):</strong> fix it in place — but if
+        the typo created a "duplicate" player on the monthly board, you'll
+        also need to find and fix any other rows for that player so they
+        match.
+      </li>
+      <li>
+        <strong>Duplicate row submitted by accident:</strong> right-click the
+        row → Delete. The site updates on next refresh.
+      </li>
+      <li>
+        <strong>Need to undo something big:</strong> right-click any row →
+        Expand record → Activity tab. Airtable keeps full row history on the
+        free plan.
+      </li>
+    </ul>
+
+    <h2>How qualifying works (for explaining to players)</h2>
+    <div class="card">
+      <strong>32 total finals spots:</strong>
+      <ul>
+        <li>
+          <strong>16 weekly spots</strong> — top 4 of each of the 4 weeks
+          (4 × 4 = 16). Lock in by being top 4 that week. You can win this
+          path even with one strong week.
+        </li>
+        <li>
+          <strong>16 monthly spots</strong> — go to the highest single weekly
+          scores from anyone who didn't already qualify weekly. So a player
+          who consistently posted top-10 scores all month can still make
+          finals without ever finishing top 4 in a single week.
+        </li>
+      </ul>
+      A player can only qualify once. If they finish weekly top 4, they're
+      locked in and the next-best contender takes their monthly slot.
+    </div>
+
+    <h2>If something breaks</h2>
+    <div class="card danger">
+      <strong>"Could not load leaderboard" on the site:</strong>
+      <ul style="margin-top: 6px">
+        <li>
+          Most often: the Airtable token expired or was deleted. Generate a
+          new one at <code>airtable.com/create/tokens</code> with scope
+          <code>data.records:read</code> on the FC26 Leaderboard base, paste
+          it into <code>js/config.js</code>, push to GitHub. Vercel will
+          redeploy in ~30 seconds.
+        </li>
+        <li>
+          Less often: someone renamed a column in Airtable. Column names must
+          match exactly: <code>Player Name</code>, <code>Score</code>,
+          <code>Week Number</code>, <code>Location</code>,
+          <code>Weekly Qualifier</code>.
+        </li>
+      </ul>
+    </div>
+
+    <h2>Quick reference card</h2>
+    <table>
+      <tbody>
+        <tr>
+          <td><strong>Where to add scores</strong></td>
+          <td>Airtable → FC26 Leaderboard base → Scores table</td>
+        </tr>
+        <tr>
+          <td><strong>Where players see them</strong></td>
+          <td>Your Vercel site (e.g. <code>fc26-leaderboard.vercel.app</code>)</td>
+        </tr>
+        <tr>
+          <td><strong>Submission deadline</strong></td>
+          <td>Sunday 11:59 PM, every week</td>
+        </tr>
+        <tr>
+          <td><strong>End-of-week task</strong></td>
+          <td>Tick Weekly Qualifier on top 4 rows of that week</td>
+        </tr>
+        <tr>
+          <td><strong>Finals date</strong></td>
+          <td>July 28th — National Soccer Day Showdown, Atlanta</td>
+        </tr>
+        <tr>
+          <td><strong>Player Discord</strong></td>
+          <td><code>discord.gg/SyYMguJQpy</code></td>
+        </tr>
+      </tbody>
+    </table>
+  </body>
+</html>
