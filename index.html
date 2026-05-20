@@ -1,0 +1,91 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Atlanta FC26 Monthly Challenge — Weekly Leaderboard</title>
+    <meta
+      name="description"
+      content="Live weekly leaderboard for the Atlanta FC26 Monthly Challenge. Top 4 each week qualify for the National Soccer Day Showdown on July 28th."
+    />
+    <link rel="stylesheet" href="css/styles.css" />
+  </head>
+  <body>
+    <header class="site-header">
+      <div class="header-inner">
+        <a class="brand" href="index.html">
+          <div class="brand-mark">FC</div>
+          <div class="brand-text">
+            <span class="city">ATLANTA</span>
+            <span class="title">FC26 Monthly Challenge</span>
+          </div>
+        </a>
+        <nav class="nav">
+          <a href="index.html" class="active">Weekly</a>
+          <a href="monthly.html">Monthly</a>
+          <a href="about.html">About</a>
+        </nav>
+        <a
+          class="discord-btn"
+          href="https://discord.gg/SyYMguJQpy"
+          target="_blank"
+          rel="noopener"
+        >
+          <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
+            <path
+              d="M20.317 4.369A19.79 19.79 0 0 0 16.558 3a.075.075 0 0 0-.079.037c-.21.375-.444.864-.608 1.249a18.27 18.27 0 0 0-5.487 0 12.51 12.51 0 0 0-.617-1.249A.077.077 0 0 0 9.687 3 19.74 19.74 0 0 0 5.928 4.369a.07.07 0 0 0-.032.027C2.533 9.046 1.704 13.58 2.099 18.058a.082.082 0 0 0 .031.056 19.9 19.9 0 0 0 5.993 3.03.077.077 0 0 0 .084-.028 14.09 14.09 0 0 0 1.226-1.994.075.075 0 0 0-.041-.104 13.1 13.1 0 0 1-1.872-.892.075.075 0 0 1-.008-.125c.126-.094.252-.192.372-.291a.075.075 0 0 1 .077-.01c3.927 1.793 8.18 1.793 12.061 0a.075.075 0 0 1 .078.009c.12.099.246.198.373.292a.075.075 0 0 1-.006.125c-.598.349-1.22.645-1.873.891a.075.075 0 0 0-.04.105c.36.698.772 1.362 1.225 1.993a.077.077 0 0 0 .084.028 19.84 19.84 0 0 0 6.002-3.03.077.077 0 0 0 .032-.054c.5-5.177-.838-9.674-3.549-13.66a.06.06 0 0 0-.031-.028zM8.02 15.331c-1.183 0-2.158-1.085-2.158-2.419 0-1.333.957-2.419 2.158-2.419 1.21 0 2.176 1.096 2.158 2.42 0 1.333-.957 2.418-2.158 2.418zm7.974 0c-1.183 0-2.158-1.085-2.158-2.419 0-1.333.957-2.419 2.158-2.419 1.21 0 2.176 1.096 2.158 2.42 0 1.333-.948 2.418-2.158 2.418z"
+            />
+          </svg>
+          Discord
+        </a>
+      </div>
+    </header>
+
+    <main>
+      <section class="hero">
+        <span class="eyebrow">Live Standings</span>
+        <h1 class="page-title">Weekly Leaderboard</h1>
+        <p class="subtitle">
+          Four weeks. Sixteen weekly qualifying spots. Top 4 each week earn an
+          invite to the finals at the National Soccer Day Showdown.
+        </p>
+        <div class="deadline-banner">
+          Weekly submission deadline:&nbsp;<strong id="deadline-label">Sunday at 11:59 PM</strong>
+        </div>
+      </section>
+
+      <div id="week-tabs" class="week-tabs" role="tablist" aria-label="Select week"></div>
+
+      <div class="board-container">
+        <div class="board-meta">
+          <div class="meta-label" id="meta-label">WEEK 1 LEADERBOARD</div>
+          <div class="meta-stat" id="meta-stat"><strong>0</strong> entries</div>
+        </div>
+
+        <div class="table-wrap">
+          <table class="leaderboard weekly" aria-live="polite">
+            <thead>
+              <tr>
+                <th>Rank</th>
+                <th>Player</th>
+                <th class="col-location">Location</th>
+                <th style="text-align: right">Score</th>
+                <th>Status</th>
+              </tr>
+            </thead>
+            <tbody id="board-body"></tbody>
+          </table>
+          <div id="board-state"></div>
+        </div>
+      </div>
+    </main>
+
+    <footer class="site-footer">
+      <p>Finals on July 28th <span class="accent">·</span> National Soccer Day Showdown <span class="accent">·</span> Atlanta</p>
+    </footer>
+
+    <script src="js/config.js"></script>
+    <script src="js/airtable.js"></script>
+    <script src="js/weekly.js"></script>
+  </body>
+</html>
